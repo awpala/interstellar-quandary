@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express'),
 massive = require('massive');
 
-const wordCtrl = require('./wordCtrl');
+const phraseCtrl = require('./phraseCtrl');
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
@@ -21,8 +21,8 @@ massive({
 })
 .catch(err => console.log(err));
 
-// database endpoints
-app.get('/api/word', wordCtrl.getLastWord);
-app.put('/api/word', wordCtrl.addNewWord);
+// phrase controller endpoints - db interactions
+app.get('/api/phrase', phraseCtrl.getLastPhrase);
+app.put('/api/phrase', phraseCtrl.addNewPhrase);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`))
