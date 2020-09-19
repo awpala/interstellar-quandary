@@ -1,0 +1,18 @@
+* {
+    background-color: black;
+}
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+input {
+    color: white;
+}
+
+button {
+    background-color: white;
+}
