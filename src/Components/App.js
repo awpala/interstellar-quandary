@@ -6,37 +6,47 @@ import Display from './Display';
 import Translation from './Translation';
 
 const App = () => {
-  // component state variables
+  // UI state variables
+  const [strInput, setStrInput] = useState('');
   const [strEnglish, setStrEnglish] = useState('');
-  const [strDisplay, isValidated] = useTranslator(strEnglish);
+  const [strDisplay, setStrDisplay] = useState('');
 
-  // introduction strings
-  const strSuspicious = 'wyo234yyo238wyo234tyo228myo214gyo202myo214syo226yyo238wyo234ayo240myo214wyo234myo214xyo236syo226vyo232wyo234eyo198dyo246wyo234'; // "suspicious visitor says" -- displays this string initially
-  const strPeaceful = 'tyo228iyo206eyo198gyo202iyo206jyo208yyo238pyo220ayo240myo214wyo234myo214xyo236syo226vyo232wyo234eyo198dyo246wyo234'; // "peaceful visitor says" -- displays this string once validated
+  // translation logic via custom hook useTranslator
+  const [strGorbyoyo, isValidated] = useTranslator(strInput);
 
   // initial mount (populates last query if page refreshed via GET to database)
   useEffect(() => {
     axios.get('/api/phrase')
-      .then(res => setStrEnglish(res.data[0].english))
+      .then(res => {
+        setStrEnglish(res.data[0].english);
+        setStrDisplay(res.data[0].gorbyoyo);
+      })
       .catch(err => console.log(err));
   }, [])
 
   // handler - PUT to database on button click
   const onTranslate = () => {
+    setStrEnglish(strInput);
+    setStrDisplay(strGorbyoyo);
+
     axios.put('/api/phrase', { 
-      english: strEnglish,
-      gorbyoyo: strDisplay
+      english: strInput,
+      gorbyoyo: strGorbyoyo
     })
     .catch(err => console.log(err));
+
+    setStrInput('');
   }
 
   return (
     <div className="App">
       <Display
-        intro={isValidated ? strPeaceful : strSuspicious}
+        isValidated={isValidated}
         gorbyoyo={strDisplay}
       />
       <Translation
+        strInput={strInput}
+        setStrInput={setStrInput}
         strEnglish={strEnglish}
         setStrEnglish={setStrEnglish}
         onTranslate={onTranslate}

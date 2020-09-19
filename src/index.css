@@ -25,3 +25,11 @@ button {
     color: white;
     font-weight: bold;
 }
+
+.display {
+    background-color: black;
+}
+
+.translation {
+    color: white;
+}

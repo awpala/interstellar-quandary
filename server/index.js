@@ -1,3 +1,4 @@
+// import dependencies and process string variables
 require('dotenv').config();
 
 const express = require('express'),
@@ -23,7 +24,7 @@ massive({
 })
 .catch(err => console.log(err));
 
-// phrase controller endpoints - database interactions
+// phrase controller endpoints (database interactions)
 app.get('/api/phrase', phraseCtrl.getLastPhrase);
 app.put('/api/phrase', phraseCtrl.addNewPhrase);
 

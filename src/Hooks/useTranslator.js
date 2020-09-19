@@ -20,8 +20,8 @@ const useTranslator = (textToTranslate) => {
         let strGorb = '';
 
         // build Gorbyoyo translation string via auxiliary function dorbWordParser
-        for(let word of strDorb) {
-            strGorb += dorbWordParser(word);
+        for(let dorbWord of strDorb) {
+            strGorb += dorbWordParser(dorbWord);
         }
 
         return strGorb;
