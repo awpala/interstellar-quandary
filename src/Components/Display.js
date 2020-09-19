@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Display = ({ isValidated, gorbyoyo }) => {
+const Display = ({ validationFlag, gorbyoyo }) => {
     // introduction strings (conditionally rendered)
 
     // "suspicious visitor says" -- displays this string initially
@@ -11,8 +11,8 @@ const Display = ({ isValidated, gorbyoyo }) => {
 
     return (
         <div className="display">
-            <h2>{isValidated ? strPeaceful : strSuspicious}</h2>
-            <h1>{gorbyoyo}</h1>
+            <h1 className="gorbyoyo-validated">{validationFlag ? strPeaceful : strSuspicious}</h1>
+            <p className="gorbyoyo-text">{gorbyoyo}</p>
         </div>
     );
 }

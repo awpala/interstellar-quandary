@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import useTranslator from '../Hooks/useTranslator';
 import axios from 'axios';
 
+import useTranslator from '../Hooks/useTranslator';
 import Display from './Display';
 import Translation from './Translation';
 
@@ -10,6 +10,7 @@ const App = () => {
   const [strInput, setStrInput] = useState('');
   const [strEnglish, setStrEnglish] = useState('');
   const [strDisplay, setStrDisplay] = useState('');
+  const [validationFlag, setValidationFlag] = useState(false);
 
   // translation logic via custom hook useTranslator
   const [strGorbyoyo, isValidated] = useTranslator(strInput);
@@ -28,6 +29,7 @@ const App = () => {
   const onTranslate = () => {
     setStrEnglish(strInput);
     setStrDisplay(strGorbyoyo);
+    setValidationFlag(isValidated);
 
     axios.put('/api/phrase', { 
       english: strInput,
@@ -41,7 +43,7 @@ const App = () => {
   return (
     <div className="App">
       <Display
-        isValidated={isValidated}
+        validationFlag={validationFlag}
         gorbyoyo={strDisplay}
       />
       <Translation
@@ -50,7 +52,7 @@ const App = () => {
         strEnglish={strEnglish}
         setStrEnglish={setStrEnglish}
         onTranslate={onTranslate}
-        isValidated={isValidated}
+        validationFlag={validationFlag}
       />
     </div>
   );

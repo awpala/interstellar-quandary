@@ -1,35 +1,84 @@
-/* img reference: https://i2.wp.com/astrobob.areavoices.com/files/2011/09/Twinkling-stars.gif?resize=304%2C234 */
+/* GENERAL APP STYLING */
+
+/* N.B. background-image reference: https://i2.wp.com/astrobob.areavoices.com/files/2011/09/Twinkling-stars.gif?resize=304%2C234 */
 body {
     background-color: black;
-    background-image: url("interstellar-sky.gif");
+    background-image: url("Images/interstellar-sky.gif");
 }
 
 .App {
     width: 100vw;
     height: 100vh;
-    color: limegreen;
+    color: #39FF14;
     font-weight: bold;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 10px;
+    width: 50vw;
+    overflow-wrap: break-word;
+    align-self: center;
+}
+
+/* DISPLAY COMPONENT STYLING */
+.display {
+    background-color: black;
+    width: 50vw;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.gorbyoyo-validated {
+    font-size: 30px;
+}
+
+.gorbyoyo-text {
+    font-size: 45px;
+    margin: 10px;
+    width: 50vw;
+    overflow-wrap: break-word;
+    align-self: center;
+}
+
+/* TRANSLATION COMPONENT STYLING */
+.translation {
+    background-color: black;
+    color: white;
+    margin: 8px;
+    padding: 10px;
 }
 
 input {
     background-color: black;
     color: white;
+    width: 250px;
 }
 
 button {
     background-color: white;
+    border-radius: 8px;
+}
+
+.english-heading {
+    font-size: 20pt;
+    padding: 5px;
+    margin: auto;
 }
 
 .english-text {
     color: white;
     font-weight: bold;
+    font-size: 16pt;
+    padding: 5px;
+    margin: auto;
 }
 
-.display {
-    background-color: black;
-}
-
-.translation {
-    color: white;
+.validation-status {
+    color: #4666FF;
 }
