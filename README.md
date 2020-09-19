@@ -30,12 +30,12 @@ To launch the application, activate the server on the specified `SERVER_PORT` (e
 
 ### Client
 
-The client-side application is built with React and bootstrapped via `create-react-app`. All React components are Hooks (see `/src/Components`). Furthermore, the principal translation logic is encapsulated in a custom Hook `useTranslator` (see `/src/Hooks/useTranslator.js`).
+The client-side application is built with React and bootstrapped via `create-react-app`. All React components are Hooks (see `/src/Components`). Furthermore, the principal English-to-Gorbyoyo translation logic is encapsulated in the custom Hook `useTranslator` (see `/src/Hooks/useTranslator.js`).
 
 ### Server
 
-The server-side application is an Express server running on Node.js. The server provides RESTful APIs to mediate interaction between the client-side application and the database. The API consists of two endpoints via route `/api/phrase`:
-* **GET** - queries the most recently translated English phrase to provide data persistence
+The server-side application is an Express server running on Node.js. The server provides RESTful APIs to mediate interaction between the client-side application and the database for data persistence. The API consists of two endpoints via route `/api/phrase`:
+* **GET** - queries the most recently translated English phrase from the database
 * **PUT** - adds a new query to the database when a translation is performed by the user
 
 ### Database
