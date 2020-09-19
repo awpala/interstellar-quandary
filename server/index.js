@@ -7,10 +7,12 @@ const phraseCtrl = require('./phraseCtrl');
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
+// instantiate Express server
 const app = express();
 
 app.use(express.json());
 
+// connect to database
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false}
@@ -21,7 +23,7 @@ massive({
 })
 .catch(err => console.log(err));
 
-// phrase controller endpoints - db interactions
+// phrase controller endpoints - database interactions
 app.get('/api/phrase', phraseCtrl.getLastPhrase);
 app.put('/api/phrase', phraseCtrl.addNewPhrase);
 
