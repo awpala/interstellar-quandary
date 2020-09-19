@@ -8,18 +8,18 @@ const useTranslator = (textToTranslate) => {
     const [isValidated, setIsValidated] = useState(false);
     const baseUrl = 'https://72exx40653.execute-api.us-east-1.amazonaws.com/prod';
 
-    // auxiliary functions
+    // auxiliary functions to translate from Dorbdorb to Gorbyoyo
     const dorbWordParser = (gorbWord) => {
         const integers = gorbWord.split(/[a-z]/gi); // extract integers
         const alpha = gorbWord.match(/[a-z]/gi)[0]; // extract alpha character
 
-        return alpha +"yo".concat(parseInt(integers[0], 10) + parseInt(integers[1], 10));
+        return `${alpha}yo${parseInt(integers[0], 10) + parseInt(integers[1], 10)}`;
     }
 
     const dorbToGorb = (strDorb) => {
         let strGorb = '';
 
-        // build Gorbyoyo string translation via auxiliary function dorbWordParser
+        // build Gorbyoyo translation string via auxiliary function dorbWordParser
         for(let word of strDorb) {
             strGorb += dorbWordParser(word);
         }
@@ -30,8 +30,8 @@ const useTranslator = (textToTranslate) => {
     // translate English input to Dorbdorb
     useEffect(() => {
         axios.post(`${baseUrl}/translateEnglishToAlien`, { textToTranslate })
-        .then(res => setArrGorbyoyo(res.data))
-        .catch(err => console.log(err));
+            .then(res => setArrGorbyoyo(res.data))
+            .catch(err => console.log(err));
     }, [textToTranslate]);
 
     // translate Dorbdorb to Gorbyoyo, validate result
@@ -39,11 +39,11 @@ const useTranslator = (textToTranslate) => {
         setTextToVerify(dorbToGorb(arrGorbyoyo));
     
         axios.post(`${baseUrl}/confirmtranslation`, { textToVerify })
-        .then(res => setIsValidated(res.data === "Success"))
-        .catch(err => console.log(err));
+            .then(res => setIsValidated(res.data === "Success"))
+            .catch(err => console.log(err));
     }, [arrGorbyoyo, textToVerify]);
 
-    // return translation and validation status
+    // return Gorbyoyo translation and validation status
     return [textToVerify, isValidated];
 }
 
