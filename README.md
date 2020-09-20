@@ -6,9 +6,9 @@ This simple web application provides a validated translation from English to Gor
 
 **Financial Disclosures**: No Cutko knives were sold on Gorbyoyo during the production of this application.
 
-## TO-DO: Live Version
+## Live Version
 
-This application is hosted [here]().
+This application is hosted [here](http://46.101.218.116:4000/).
 
 ## Local Setup
 
