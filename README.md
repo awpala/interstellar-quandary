@@ -10,13 +10,13 @@ This simple web application provides a validated translation from English to Gor
 
 This application is hosted [here](http://46.101.218.116:4000/).
 
-## Local Setup
+## Local Setup and Deployment
 
 **Note**: This project requires `git`, `node.js`, and `npm` as principal dependencies.
 
-To deploy this project locally, issue the appropriate `git clone` command in the terminal to clone a local copy of the repository. Once the files are copied locally, issue terminal command `npm install` to install the additional dependencies (see `/package.json` and/or **Technologies Used** below for more information).
+To deploy this project locally, issue the appropriate `git clone` command in the terminal (e.g., Bash) to clone a local copy of the repository. Once the files are copied locally, issue terminal command `npm install` to install the additional dependencies (see `/package.json` and/or **Technologies Used** below for more information).
 
-**Note**: Create a new file `.env` in the root project directory (i.e., in `interstellar-quandary`) to store secured variable strings. This file is `.gitignore`d and must be created locally instead.
+**Note**: Create a new file entitled `.env` in the root project directory (i.e., in `interstellar-quandary`) to store secured variable strings. This file is `.gitignore`d and must be created locally instead.
 
 `/db/seed.sql` contains the seed file to create the PostgreSQL database table entitled `phrase`. Once the table is created in the database schema, to connect the server via MassiveJS, add the appropriate `CONNECTION_STRING` variable containing the location of the database table (e.g., Heroku) to the `.env` file.
 
@@ -26,7 +26,7 @@ To launch the application, activate the server on the specified `SERVER_PORT` (e
 
 ## Running Unit Tests
 
-To run the unit tests (see `/__tests__`), simply issue terminal command `npm test`. Testing performed is using Jest and Enzyme on the client-side application React components.
+To run the unit tests (see `/__tests__`), issue terminal command `npm test`. Testing is performed using Jest and Enzyme on the client-side application React components.
 
 ## Technologies Used
 
