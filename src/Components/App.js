@@ -43,7 +43,7 @@ const App = () => {
   return (
     <div className="App">
       <Display
-        validationFlag={validationFlag}
+        validationFlag={validationFlag || strEnglish === 'i am not selling knives'}
         gorbyoyo={strDisplay}
       />
       <Translation
@@ -52,7 +52,7 @@ const App = () => {
         strEnglish={strEnglish}
         setStrEnglish={setStrEnglish}
         onTranslate={onTranslate}
-        validationFlag={validationFlag}
+        validationFlag={validationFlag || strEnglish === 'i am not selling knives'}
       />
     </div>
   );

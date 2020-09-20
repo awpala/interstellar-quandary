@@ -24,7 +24,9 @@ Finally, add the appropriate `SERVER_PORT` string to the `.env` file to declare 
 
 To launch the application, activate the server on the specified `SERVER_PORT` (e.g., via `node` or `nodemon`) and then issue terminal command `npm run start` to launch the client-side application.
 
-## TO-DO: Running Unit Tests
+## Running Unit Tests
+
+To run the unit tests (see `/__tests__`), simply issue terminal command `npm test`. Testing performed is using Jest and Enzyme on the client-side application React components.
 
 ## Technologies Used
 
@@ -40,4 +42,4 @@ The server-side application is an Express server running on Node.js. The server 
 
 ### Database
 
-The database consists of one table entitled `phrase` (see `/db/seed.sql`), consisting of the fields `phrase_id`, `english`, and `gorbyoyo`. This table persists the ad hoc translation data. The PostgreSQL database is hosted via Heroku and connected to the server-side application via [MassiveJS](https://massivejs.org/).
+The database comprises one table entitled `phrase` (see `/db/seed.sql`), consisting of the fields `phrase_id`, `english`, and `gorbyoyo`. This table persists the ad hoc translation data. The PostgreSQL database is hosted via Heroku and connected to the server-side application via [MassiveJS](https://massivejs.org/).
