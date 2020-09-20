@@ -32,7 +32,7 @@ To run the unit tests (see `/__tests__`), issue terminal command `npm test`. Tes
 
 ### Client
 
-The client-side application is built with React and bootstrapped via `create-react-app`. All React components are Hooks (see `/src/Components`). Furthermore, the principal English-to-Gorbyoyo translation logic is encapsulated in the custom Hook `useTranslator` (see `/src/Hooks/useTranslator.js`).
+The client-side application is built with React and bootstrapped via `create-react-app`. All React components are functional components built using Hooks (see `/src/Components`). Furthermore, the English-to-Gorbyoyo translation logic is encapsulated in the custom Hook `useTranslator` (see `/src/Hooks/useTranslator.js`).
 
 ### Server
 

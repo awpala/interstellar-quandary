@@ -16,11 +16,11 @@ const useTranslator = (textToTranslate) => {
         return `${alpha}yo${parseInt(integers[0], 10) + parseInt(integers[1], 10)}`;
     }
 
-    const dorbToGorb = (strDorb) => {
+    const dorbToGorb = (arrDorb) => {
         let strGorb = '';
 
         // build Gorbyoyo translation string via auxiliary function dorbWordParser
-        for(let dorbWord of strDorb) {
+        for(let dorbWord of arrDorb) {
             strGorb += dorbWordParser(dorbWord);
         }
 
